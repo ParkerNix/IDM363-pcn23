@@ -1,5 +1,6 @@
 import { Header } from './header';
 import { Footer } from './footer';
-import { Sidebar } from './sidebar';
+import { Admin } from './admin';
+import { Shop } from './shop';
 
-export { Header, Footer, Sidebar }
+export { Header, Footer, Admin, Shop }

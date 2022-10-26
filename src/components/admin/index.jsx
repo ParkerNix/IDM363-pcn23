@@ -1,4 +1,4 @@
-export const Sidebar = () => {
+export const Admin = () => {
     return (
         <div>
             <p>side piece</p>

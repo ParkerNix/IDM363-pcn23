@@ -3,18 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import { Header, Footer, Sidebar } from './components';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Header, Footer, Admin, Shop } from './components';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<App />}></Route>
-            <Route path="footer" element={<Footer />}></Route>
-            <Route path="header" element={<Header />}></Route>
-            <Route path="sidebar" element={<Sidebar />}></Route>
+            <Route path="/" element={<App />}>
+              <Route path="/Shop" element={<Shop />}></Route>
+              <Route path="/header" element={<Header />}></Route>
+              <Route path="/footer" element={<Footer />}></Route>
+              <Route path="/admin" element={<Admin />}></Route>
+            </Route>
             <Route path="*" element={<h1>No</h1>}></Route>
         </Routes>
     </BrowserRouter>

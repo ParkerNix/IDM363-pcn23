@@ -1,4 +1,4 @@
-import { Header, Footer, Sidebar } from '../';
+import { Header, Footer, Admin } from '../';
 import {useState, useEffect} from "react";
 
 export const Example = () => {
@@ -29,7 +29,7 @@ export const Layout = (leprop) => {
         <>
             <Header />
             <h1>Hey</h1>
-            <Sidebar />
+            <Admin />
             <Footer />
         </>
     )
