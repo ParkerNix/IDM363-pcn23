@@ -1,6 +1,5 @@
-import { Header } from './header';
-import { Footer } from './footer';
+import { Cart } from './cart';
 import { Admin } from './admin';
 import { Shop } from './shop';
 
-export { Header, Footer, Admin, Shop }
+export { Cart, Admin, Shop }

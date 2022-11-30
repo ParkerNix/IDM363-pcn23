@@ -1,4 +1,4 @@
-let items = [
+const items = [
     {
         id: 1,
         title: "Isabelle",
@@ -14,18 +14,18 @@ let items = [
     }
 ]
 
-let editItems = items.map((item) => (
+const cartItems = items.map((item) => (
     <div key={item.id}>
-        <input type="text" value={item.title}></input>
-        <input type="text" value={item.text}></input>
-        <input type="text" value={item.price}></input>
+        <h2>{item.title}</h2>
+        <p>{item.text}</p>
+        <button>REMOVE FROM CART</button>
     </div>
   ))
 
-export const Admin = () => {
+export const Cart = () => {
     return (
         <>
-            {editItems}
+            {cartItems}
         </>
     )
 }
