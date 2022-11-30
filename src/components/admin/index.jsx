@@ -15,10 +15,15 @@ let items = [
 ]
 
 let editItems = items.map((item) => (
-    <div key={item.id}>
-        <input type="text" value={item.title}></input>
-        <input type="text" value={item.text}></input>
-        <input type="text" value={item.price}></input>
+    <div className="card mb-3" key={item.id}>
+        <div className="card-body d-flex flex-column">
+            <h2 className="h4">Title</h2>
+            <input type="text" value={item.title} className="mb-3"></input>
+            <h2 className="h4">Description</h2>
+            <input type="text" value={item.text} className="mb-3"></input>
+            <h2 className="h4">Price</h2>
+            <input type="text" value={item.price} className="mb-3"></input>
+        </div>
     </div>
   ))
 
