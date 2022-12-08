@@ -3,9 +3,9 @@ import "./App.css";
 import { Outlet, Link } from "react-router-dom";
 
 function App() {
+
   return (
     <>
-
       <div className='container'>
         <div className='row'>
           <div className='col'>

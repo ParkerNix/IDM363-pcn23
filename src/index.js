@@ -5,21 +5,24 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Cart, Admin, Shop } from './components';
+import { StoreContextProvider } from './contexts/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<App />}>
-              <Route path="/shop" element={<Shop />}></Route>
-              <Route path="/cart" element={<Cart />}></Route>
-              <Route path="/admin" element={<Admin />}></Route>
-            </Route>
-            <Route path="*" element={<h1>Nothing found here.</h1>}></Route>
-        </Routes>
-    </BrowserRouter>
+    <StoreContextProvider>
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<App />}>
+                <Route path="/shop" element={<Shop />}></Route>
+                <Route path="/cart" element={<Cart />}></Route>
+                <Route path="/admin" element={<Admin />}></Route>
+                <Route path="/*" element={<p>Nothing found here.</p>}></Route>
+              </Route>
+          </Routes>
+      </BrowserRouter>
+    </StoreContextProvider>
   </React.StrictMode>
 );
 
