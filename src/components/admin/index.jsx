@@ -1,26 +1,27 @@
-import { useContext } from "react"
-import { StoreContext } from "../../contexts/store"
+import { useDispatch, useSelector } from "react-redux"
+import { update } from "../../store/slices/items"
 
 export const Admin = () => {
-    const state = useContext(StoreContext)
-    let items = state.items
-    console.log(items)
+    const user = useSelector((state) => state.user.value)
+    const dispatch = useDispatch()
 
-    let editItems = items.map((item) => (
-        <div className="card mb-3" key={item.id}>
-            <div className="card-body d-flex flex-column">
-                <h2 className="h4">Title</h2>
-                <input type="text" value={item.title} className="mb-3"></input>
-                <h2 className="h4">Description</h2>
-                <input type="text" value={item.desc} className="mb-3"></input>
-                <h2 className="h4">Price</h2>
-                <input type="text" value={item.price} className="mb-3"></input>
-            </div>
-        </div>
-    ))
+    function handleInputChange(e) {
+        const state = {
+              ...user,
+              [e.target.name]: e.target.value,
+            };
+            dispatch(update(state));
+    }
+
     return (
         <>
-            {editItems}
+            <span>{user.username} | {user.email}</span>
+            <input
+            type="text"
+            value={user.username}
+            className="mb-3"
+            onChange={handleInputChange}
+            />
         </>
     )
 }

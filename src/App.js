@@ -1,8 +1,34 @@
 import "./App.css";
 
 import { Outlet, Link } from "react-router-dom";
+import { collection, onSnapshot, query, } from "firebase/firestore";
+import { db } from "./firebase";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { update } from "./store/slices/items";
 
 function App() {
+  
+  const [allItems, setAllItems] = useState([])
+  const dispatch = useDispatch();
+  localStorage.setItem("allItems", JSON.stringify(allItems));
+  
+  useEffect (() => {
+    const q = query(collection(db, "saleItems"));
+    onSnapshot(q, (querySnapshot) => {
+      const itemsArray = [];
+      querySnapshot.forEach((doc) => {
+        const itemData = {
+          keyName: doc.id,
+          ...doc.data(),
+        };
+        itemsArray.push(itemData);
+      });
+      dispatch(update(itemsArray)) 
+      setAllItems(itemsArray) 
+    });
+  
+  }, [])
 
   return (
     <>
