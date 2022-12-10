@@ -18,7 +18,7 @@ const initialStateValue = getValue();
 
 console.log(initialStateValue)
 
-export const item_sliceySlice = createSlice({
+export const cart_sliceySlice = createSlice({
   name: "cart_slicey",
   initialState: {
     value: initialStateValue,
@@ -45,6 +45,6 @@ export const item_sliceySlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart } = item_sliceySlice.actions;
+export const { addToCart, removeFromCart } = cart_sliceySlice.actions;
 
-export default item_sliceySlice.reducer;
+export default cart_sliceySlice.reducer;

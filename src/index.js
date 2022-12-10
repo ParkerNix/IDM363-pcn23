@@ -18,7 +18,7 @@ root.render(
               <Route path="/" element={<App />}>
                 <Route path="/shop" element={<Shop />}></Route>
                 <Route path="/cart" element={<Cart />}>
-                  <Route path=":productKey" element={<Details />}></Route>
+                  <Route path=":itemKey" element={<Details />}></Route>
                 </Route>
                 <Route path="/admin" element={<Admin />}></Route>
                 <Route path="/*" element={<p>Nothing found here.</p>}></Route>

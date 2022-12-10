@@ -8,27 +8,28 @@ import { useDispatch } from "react-redux";
 import { update } from "./store/slices/items";
 
 function App() {
+  const dispatch = useDispatch();
   
   const [allItems, setAllItems] = useState([])
-  const dispatch = useDispatch();
-  localStorage.setItem("allItems", JSON.stringify(allItems));
-  
-  useEffect (() => {
-    const q = query(collection(db, "saleItems"));
-    onSnapshot(q, (querySnapshot) => {
-      const itemsArray = [];
-      querySnapshot.forEach((doc) => {
-        const itemData = {
-          keyName: doc.id,
-          ...doc.data(),
-        };
-        itemsArray.push(itemData);
-      });
-      dispatch(update(itemsArray)) 
-      setAllItems(itemsArray) 
-    });
-  
+
+  useEffect(() => {
+    const q = query(collection(db, "saleItems"))
+    onSnapshot(q, querySnapshot => {
+      setAllItems([])
+      querySnapshot.forEach(doc => {
+        setAllItems(prevAllItems => [
+          ...prevAllItems,
+          doc.data()
+        ])
+      })
+    })
   }, [])
+
+  useEffect(() => {
+    dispatch(update(allItems))
+  })
+
+  console.log(allItems)
 
   return (
     <>

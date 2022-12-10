@@ -1,11 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStateValue = JSON.parse(localStorage.getItem("allItems"))
-
 export const item_sliceySlice = createSlice({
   name: "item_slicey",
   initialState: {
-    value: initialStateValue,
+    value: [],
   },
   reducers: {
     update: (state, action) => {
@@ -17,7 +15,7 @@ export const item_sliceySlice = createSlice({
         ...state.value[itemIndex],
         title: action.payload.title,
         price: action.payload.price,
-        quantity: action.payload.quantity
+        text: action.payload.text
       }
     }
   },
