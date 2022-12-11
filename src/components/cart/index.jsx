@@ -6,17 +6,17 @@ export const Cart = () => {
 
     return (
         <>
-            <div className='container'>
-                <div>
-                    {cart.map((item) => (
-                    <CartItem
-                        key={item.id}
-                        id={item.id}
-                        title={item.title}
-                        price={item.price} 
-                    />
-                    ))}
-                </div>
+            <h2 className="h1">Cart</h2>
+            <div>
+                {cart.map((item) => (
+                <CartItem
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    price={item.price} 
+                />
+                ))}
+                <p>Add more, we dare you!</p>
             </div>
         </>
     )
