@@ -38,6 +38,7 @@ function App() {
           <div className='col'>
             <div className='d-flex justify-content-center mt-5'>
               <h1>Flavor Life</h1>
+              <h1>{process.env.REACT_APP_FIREBASE_API_KEY}</h1>
             </div>
             <nav>
               <ul className='nav justify-content-center'>
