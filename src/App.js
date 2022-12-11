@@ -41,7 +41,7 @@ function App() {
             </div>
             <nav>
               <ul className='nav justify-content-center'>
-                <li className='nav-item mx-1 active'>
+                <li className='nav-item mx-1'>
                   <Link className='nav-link' to="/">Home</Link>
                 </li>
                 <li className='nav-item mx-1'>

@@ -2,12 +2,12 @@ body {
   background-color: #FFFBF9;
 }
 
-h1, h2, h3, h4, h5, h6, p, li.active a {
+h1, h2, h3, h4, h5, h6, p, li.active a, .h1, .h2, .h3, .h4, .h5 {
   color: #FC5700;
   font-family: greycliff-cf, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5 {
   font-weight: 700;
 }
 

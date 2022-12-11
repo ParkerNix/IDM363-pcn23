@@ -1,34 +1,23 @@
-import { format_price } from "../../funcs/money";
-
-const items = [
-    {
-        id: 1,
-        title: "Isabelle",
-        text: "Omg Isabelle yessss",
-        price: "400"
-    },
-
-    {
-        id: 2,
-        title: "Jigglypuff",
-        text: "JIIIIGGAAALYYYYYYPUUUUUUFF JIGGAAALYYyyYYYPUUUUUFF",
-        price: "450"
-    }
-]
-
-const cartItems = items.map((item) => (
-    <div className="card mb-3" key={item.id}>
-        <div className="card-body">
-            <h2 className="card-title">{item.title}</h2>
-            <button>ADD TO CART: {format_price(item.price)}</button>
-        </div>
-    </div>
-  ))
+import CartItem from "../cart_item"
+import { useSelector } from 'react-redux';
 
 export const Cart = () => {
+    const cart = useSelector((state) => state.cart_slicey.value);
+
     return (
         <>
-            {cartItems}
+            <div className='container'>
+                <div>
+                    {cart.map((item) => (
+                    <CartItem
+                        key={item.id}
+                        id={item.id}
+                        title={item.title}
+                        price={item.price} 
+                    />
+                    ))}
+                </div>
+            </div>
         </>
     )
 }

@@ -16,10 +16,10 @@ root.render(
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<App />}>
-                <Route path="/shop" element={<Shop />}></Route>
-                <Route path="/cart" element={<Cart />}>
+                <Route path="/shop" element={<Shop />}>
                   <Route path=":itemKey" element={<Details />}></Route>
                 </Route>
+                <Route path="/cart" element={<Cart />}></Route>
                 <Route path="/admin" element={<Admin />}></Route>
                 <Route path="/*" element={<p>Nothing found here.</p>}></Route>
               </Route>

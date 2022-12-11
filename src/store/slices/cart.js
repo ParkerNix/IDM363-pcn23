@@ -1,50 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-function getValue() {
-  const initialStateValue = [];
-  const allItems = localStorage.getItem("allItems")
-  if (typeof allItems !== 'undefined' && allItems !== null) {
-    const initialStateValue = [
-      ...JSON.parse(localStorage.getItem("allItems")).map((product) => ({
-      ...product,
-      in_cart: 0,
-    }))];
-    return initialStateValue;
-  }
-  return initialStateValue;
-}
-
-const initialStateValue = getValue();
-
-console.log(initialStateValue)
-
 export const cart_sliceySlice = createSlice({
   name: "cart_slicey",
   initialState: {
-    value: initialStateValue,
+    value: []
   },
   reducers: {
-    addToCart: (state = initialStateValue, action) => {
-      const itemToAdd = state.value.find((item) => item.keyName === action.payload.keyName)
-      if (itemToAdd) {
-        itemToAdd.in_cart++;
+    updateItem: (state, action) => {
+      const itemIndex = state.value.findIndex(item => item.id === action.payload.id)
+
+      if(itemIndex >= 0){
+        state.value[itemIndex] = {
+          ...state.value[itemIndex],
+          title: action.payload.title,
+          price: action.payload.price
+        }
+      }
+    },
+    addToCart: (state, action) => {
+      const itemInCart = state.value.find((item) => item.id === action.payload.id)
+
+      if (itemInCart) {
+        itemInCart.quantity++;
       } else {
-        console.log("You tried to add it...")
-        console.log("But you don't have any!")
+        state.value.push({ ...action.payload, quantity: 1 });
       }
     },
     removeFromCart: (state, action) => {
-      const itemToRemove = state.value.find((item) => item.keyName === action.payload.keyName)
-      if (itemToRemove) {
-        itemToRemove.in_cart--;
-      } else {
-        console.log("You tried to remove it...")
-        console.log("But you don't have any!")
-      }
-    },
+      const removeItem = state.value.filter((item) => item.id !== action.payload);
+      state.value = removeItem;
+    }
   },
 });
 
-export const { addToCart, removeFromCart } = cart_sliceySlice.actions;
+export const { addToCart, removeFromCart, updateItem } = cart_sliceySlice.actions;
 
 export default cart_sliceySlice.reducer;
