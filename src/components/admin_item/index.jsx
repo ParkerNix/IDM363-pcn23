@@ -71,7 +71,7 @@ const AdminItem = ( { id, title, price, desc}  ) => {
                         />
                     </label>
                 </form>
-                <button onClick={e => updateFirestore(item.id, item.title, item.price, item.desc)}>Update!</button>
+                <button className="py-2 px-2" onClick={e => updateFirestore(item.id, item.title, item.price, item.desc)}>Update!</button>
             </div>
         </>
     );

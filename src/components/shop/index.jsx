@@ -21,7 +21,7 @@ export const Shop = () => {
                         <Link 
                         to={`/shop/${item.id}`}
                         >
-                        <button>SEE MORE</button>
+                        <button className="py-2 px-2">SEE MORE</button>
                         </Link>
                     </div>
                 )}

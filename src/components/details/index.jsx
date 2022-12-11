@@ -30,7 +30,7 @@ export const Details = () => {
                 <div className="card-body">
                     <h3 className="card-title">{item.title}</h3>
                     <p className="card-text">{item.desc}</p>
-                    <button onClick={() => add_to_cart(item.id, item.title, item.price, item.desc)}>ADD TO CART {format_price(item.price)}</button>
+                    <button className="py-2 px-2" onClick={() => add_to_cart(item.id, item.title, item.price, item.desc)}>ADD TO CART {format_price(item.price)}</button>
                 </div>
             </div>
         </>
